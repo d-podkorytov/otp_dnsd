@@ -1,0 +1,104 @@
+GOAL
+
+Scalable DNS daemon for Erlang OTP cluster with routing at DNS protocol level 
+ by client IP, and DNSs Application and severity ID parts of tagged DNS message,
+ optionnaly message might be routed by it's text content.
+
+ARCHITECTURE
+
+There are three main roles : listeners, workers and queues in the middle
+theys.
+
+Workers live inside separate VMs, named like 'workers_1@host.com' or for common case 'workers_*'.
+
+Listenters is working inside VMs like 'dnsd*@host.com' and listen incoming
+queries from DNS clients in network.
+
+Dns_queue is proxy process between listener and workers.
+Listener redirects all incoming messages to dns_queue.
+Dns_queue do distribution for incoming messages to workers.  
+
+Mapping pid <=> worker name is made by 'global' erlang module.
+Probably it is not best solutions and it question is open for the future.
+
+If main listener or queue crashes and restarts workers keep working.
+ 
+So, functionality of module 'global' is using as persistant storage and naming service
+for workers Pids and process names, it may be changed to another in future.
+
+Dns_queue can start or restart workers on 'workers*' node if needed.
+Amount of workers may be relative large like 512 or more.
+Supervisor controls only listener and dns_queue.
+Worker process if died will be restarted by dns_queue by reason of unaccesibility.
+
+Workers nodes must started first, and then must started listeners node.
+If listener starts it connects to workers or just restart workers processes.
+Listener may be not alone. 
+
+Choosing worker number for handling dns message is random.
+It globally named as worker_$N , where $N is globally unique worker number.
+
+All needed for configuration is stored in common.hrl file.
+For real using well be more safe to change port number to some more high (like 10514) and
+made port redirection 514 -> 10514 for avoid of working listeners by root permissions.
+
+DEPENDENICIES
+
+Erlang OTP STDLIB. 
+   
+COMPILE
+
+$erl -make
+$chmod +x *.sh
+
+RUN 
+
+1) For first run workers nodes inside separated erl's.
+
+$workers_1.sh
+
+$workers_1.sh
+
+2) Run dns daemons inside listeners erl's
+    
+#dnsd_1.sh 
+
+TESTS
+
+1>dnser:test(). Test for first single message testing.
+2>dnser:tests(). Test for set of mesages and cheching they routing.
+
+CHANGE SYSLOG ROUTING RULES
+
+For changing routing edit dns_worker:route(Ip,App,Sev) function and recompile this module
+
+TODO
+
+0) Use pg module for distribution
+1) Different backends for store events in REST Databases;
+2) Changing dns routing rules on fly;
+3) Changing logging level on fly 
+4) Chande working code on fly
+5) Workers on some set of nodes (It allready done)
+
+HASH TAGS
+
+#erlang_dns_demo
+#Dmitrii_Podkorytov 
+#erlang 
+#erlang_otp 
+#erlang_cluster 
+#erlang_example 
+#erlang_cluster_udp_example 
+#erlang_dns 
+#dns 
+#dns_cluster
+#learn_erlang 
+
+GET WORKING METRICS
+
+Gor getting statistics data collections use function 'dns_stat:info().' or more complex
+'dns_stat:all().'
+
+dns_stat:info() will return result metrics for processes
+
