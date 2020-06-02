@@ -1,0 +1,12 @@
+at wait list
+
+*)Multiple listeners , move naming dnsd -> dnsd_{N}
+
+Complited:
+
+1)dnsd! .. -> global:whereis_name(dnsd)! ...
+
+2)Queues in separated VM
+
+3)worker_{N} -> dns_worker_{N}
+

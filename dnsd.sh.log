@@ -1,0 +1,155 @@
+[[{'dnsd@de.de',["Mon 01 Jun 2020 07:41:57 AM PDT\n"]}]]
+Eshell V10.4  (abort with ^G)
+[{192,168,8,100}]-'dnsd@de.de'-"/root/w/syslogs_pool/OTP_Syslog/OTP_dns_udp_pool3.src">=CRITICAL REPORT==== 1-Jun-2020::07:41:58.124573 ===
+    old_pid: <8754.95.0>
+    point: #{function_name => "dns_ns:set/2",
+             local_time => {{2020,6,1},{7,41,58}},
+             module_line => {dns_ns,15},
+             node => 'dnsd@de.de',pid => <0.89.0>}
+    reason: global already pid exists, new will be killed
+=CRITICAL REPORT==== 1-Jun-2020::07:41:58.200775 ===
+    old_pid: <8754.98.0>
+    point: #{function_name => "dns_ns:set/2",
+             local_time => {{2020,6,1},{7,41,58}},
+             module_line => {dns_ns,15},
+             node => 'dnsd@de.de',pid => <0.89.0>}
+    reason: global already pid exists, new will be killed
+=CRITICAL REPORT==== 1-Jun-2020::07:41:58.202667 ===
+    old_pid: <8754.101.0>
+    point: #{function_name => "dns_ns:set/2",
+             local_time => {{2020,6,1},{7,41,58}},
+             module_line => {dns_ns,15},
+             node => 'dnsd@de.de',pid => <0.89.0>}
+    reason: global already pid exists, new will be killed
+=CRITICAL REPORT==== 1-Jun-2020::07:41:58.204822 ===
+    old_pid: <8755.113.0>
+    point: #{function_name => "dns_ns:set/2",
+             local_time => {{2020,6,1},{7,41,58}},
+             module_line => {dns_ns,15},
+             node => 'dnsd@de.de',pid => <0.89.0>}
+    reason: global already pid exists, new will be killed
+=CRITICAL REPORT==== 1-Jun-2020::07:41:58.205561 ===
+    pids: [{1,<8754.95.0>},{2,<8754.98.0>},{3,<8754.101.0>},{4,<8755.113.0>}]
+    point: #{function_name => "dnsd:init_workers/0",
+             local_time => {{2020,6,1},{7,41,58}},
+             module_line => {dnsd,156},
+             node => 'dnsd@de.de',pid => <0.89.0>}
+=CRITICAL REPORT==== 1-Jun-2020::07:41:58.209858 ===
+    point: #{function_name => "dns_queue_sup:init/0",
+             local_time => {{2020,6,1},{7,41,58}},
+             module_line => {dns_queue_sup,36},
+             node => 'dnsd@de.de',pid => <0.103.0>}
+    queues: [{dns_queue_1,{dns_queue,start_remote_link,['workers_1@de.de',1]},
+                          permanent,5000,worker,
+                          [dns_queue_1]},
+             {dns_queue_2,{dns_queue,start_remote_link,['workers_2@de.de',2]},
+                          permanent,5000,worker,
+                          [dns_queue_2]}]
+=CRITICAL REPORT==== 1-Jun-2020::07:41:58.229283 ===
+    global_names: [dnsd_sup,dns_workers_4,dns_workers_3,dns_workers_2,
+                   dns_workers_1,dnsd,dns_queue_2,dns_queue_1]
+    point: #{function_name => "dnsd_app:start/2",
+             local_time => {{2020,6,1},{7,41,58}},
+             module_line => {dnsd_app,22},
+             node => 'dnsd@de.de',pid => <0.87.0>}
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.258736 ===
+    msg: <<0,1,1,0,0,1,0,0,0,0,0,0,2,121,97,2,114,117,0,0,1,0,1>>
+    point: #{function_name => "dns_queue:do/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_queue,106},
+             node => 'workers_1@de.de',pid => <8754.120.0>}
+    state: #{pid => <8754.120.0>}
+    subject: get message from listener
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.258972 ===
+    ask: {ok,{dns_rec,{dns_header,1,false,query,false,false,true,false,false,
+                                  0},
+                      [{dns_query,"ya.ru",a,in}],
+                      [],[],[]}}
+    point: #{function_name => "dns_workers:parse_ask/1",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_workers,139},
+             node => 'workers_1@de.de',pid => <8754.120.0>}
+    self: <8754.120.0>
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.259123 ===
+    parsed_ask: {{dns_header,1,false,query,false,false,true,false,false,0},
+                 "ya.ru",in,a}
+    point: #{function_name => "dns_queue:do/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_queue,108},
+             node => 'workers_1@de.de',pid => <8754.120.0>}
+    state: #{pid => <8754.120.0>}
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.259392 ===
+    point: #{function_name => "dns_queue:do/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_queue,113},
+             node => 'workers_1@de.de',pid => <8754.120.0>}
+    worker_pid: <8754.98.0>
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.260459 ===
+    ask: {ok,{dns_rec,{dns_header,1,false,query,false,false,true,false,false,
+                                  0},
+                      [{dns_query,"ya.ru",a,in}],
+                      [],[],[]}}
+    point: #{function_name => "dns_workers:parse_ask/1",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_workers,139},
+             node => 'workers_1@de.de',pid => <8754.98.0>}
+    self: <8754.98.0>
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.260620 ===
+    client_header: {dns_header,1,false,query,false,false,true,false,false,0}
+    ns_ask: {"ya.ru",in,a}
+    point: #{function_name => "dns_workers:ns_query/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_workers,147},
+             node => 'workers_1@de.de',pid => <8754.98.0>}
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.572947 ===
+    client_header: {dns_header,1,false,query,false,false,true,false,false,0}
+    point: #{function_name => "dns_workers:ns_query/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_workers,156},
+             node => 'workers_1@de.de',pid => <8754.98.0>}
+    query: [{dns_query,"ya.ru",a,in}]
+    server_header: {dns_header,59853,false,query,false,false,true,false,false,
+                               0}
+    subject: replace server header to client header
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.574825 ===
+    point: #{function_name => "dnsd:handle_info/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dnsd,79},
+             node => 'dnsd@de.de',pid => <0.89.0>}
+    send: ok
+    socket: #Port<0.22>
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.573121 ===
+    ns_result: {ok,{dns_rec,
+                       {dns_header,1,true,query,false,false,true,false,false,
+                           0},
+                       [{dns_query,"ya.ru",a,in}],
+                       [{dns_rr,"ya.ru",a,in,0,415,
+                            {87,250,250,242},
+                            undefined,[],false}],
+                       [],[]}}
+    point: #{function_name => "dns_workers:ns_query/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_workers,164},
+             node => 'workers_1@de.de',pid => <8754.98.0>}
+    subject: do not forget to replace header in ns_result to client and about Opt1 Opt2 extensional options
+=CRITICAL REPORT==== 1-Jun-2020::07:41:59.573988 ===
+    point: #{function_name => "dns_queue:do/2",
+             local_time => {{2020,6,1},{7,41,59}},
+             module_line => {dns_queue,127},
+             node => 'workers_1@de.de',pid => <8754.120.0>}
+    reply: {#Port<0.22>,
+            {127,0,0,1},
+            53139,
+            <<0,1,129,0,0,1,0,1,0,0,0,0,2,121,97,2,114,117,0,0,1,0,1,192,12,0,
+              1,0,1,0,0,1,159,0,4,87,250,250,242>>}
+    result: {worker_reply,{#Port<0.22>,
+                           {127,0,0,1},
+                           53139,
+                           <<0,1,129,0,0,1,0,1,0,0,0,0,2,121,97,2,114,117,0,
+                             0,1,0,1,192,12,0,1,0,1,0,0,1,159,0,4,87,250,250,
+                             242>>}}
+    subject: turn result back to listener for pass to client
+[dnsd_sup,dns_workers_4,dns_workers_3,dns_workers_2,
+ dns_workers_1,dnsd,dns_queue_2,dns_queue_1]
+[{192,168,8,100}]-'dnsd@de.de'-"/root/w/syslogs_pool/OTP_Syslog/OTP_dns_udp_pool3.src">ok
+[{192,168,8,100}]-'dnsd@de.de'-"/root/w/syslogs_pool/OTP_Syslog/OTP_dns_udp_pool3.src">
